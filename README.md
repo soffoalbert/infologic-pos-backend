@@ -8,10 +8,10 @@ A user must be able to regiter a sales
 
 ## Technologies used:
 
-Spring Boot 
-Eureka
-Embedded Tomcat
-Mongo DB
-Docker
-Docker Compose
-Zull
+### Spring Boot 
+### Eureka
+### Embedded Tomcat
+### Mongo DB
+### Docker
+### Docker Compose
+### Zull
