@@ -1,0 +1,62 @@
+version: '2'
+services:
+    registry:
+      build:
+        context: ./eureka-server
+        dockerfile: Dockerfile
+      ports:
+       - "8761:8761"
+
+    sale:
+      build:
+        context: ./sale
+        dockerfile: Dockerfile
+      ports:
+       - "8085:8085"
+      links:
+        - sale-db
+
+    product:
+      build:
+        context: ./product
+        dockerfile: Dockerfile
+      ports:
+       - "8086:8086"
+      links:
+        - product-db
+
+    business:
+      build:
+        context: ./business
+        dockerfile: Dockerfile
+      ports:
+       - "8087:8087"
+      links:
+        - business-db
+
+    api-gateway:
+      build:
+        context: ./api-gateway
+        dockerfile: Dockerfile
+      ports:
+       - "8084:8084"
+
+    sale-db:
+      image: 'mongo:latest'
+      command: mongod --port 27018
+      ports:
+       - '27018:27018'
+
+    product-db:
+      image: 'mongo:latest'
+      command: mongod --port 27019
+      ports:
+       - '27019:27019'
+
+    business-db:
+      image: 'mongo:latest'
+      command: mongod --port 27020
+      ports:
+       - '27020:27020'
+
+

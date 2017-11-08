@@ -1,0 +1,28 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    serviceUrl:
+          defaultZone: http://registry:8761/eureka
+
+zuul:
+  routes:
+    business-service:
+        path: /business/**
+        url: http://business:8087/
+        stripPrefix: false
+    sale-service:
+        path: /sale/**
+        url: http://sale:8085/
+        stripPrefix: false
+    product-service:
+        path: /product/**
+        url: http://product:8086/
+        stripPrefix: false
+
+

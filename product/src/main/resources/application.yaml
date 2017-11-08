@@ -1,0 +1,13 @@
+server:
+  port: 8086
+
+spring:
+  application:
+    name: product
+
+spring.data.mongodb.uri: mongodb://product-db:27019/product
+
+eureka:
+  client:
+    serviceUrl:
+          defaultZone: http://registry:8761/eureka
